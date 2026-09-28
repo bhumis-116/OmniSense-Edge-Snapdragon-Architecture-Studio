@@ -36,7 +36,7 @@ By leveraging native Qualcomm Hexagon NPU offloading combined with dynamic cloud
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/your-username/omnisense-edge.git
+git clone https://github.com/your-bhumis-116/omnisense-edge.git
 cd omnisense-edge
 
 ```

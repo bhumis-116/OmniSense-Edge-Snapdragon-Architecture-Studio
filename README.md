@@ -88,5 +88,6 @@ The deployed link for the prototype-
 Experience the **OmniSense Edge AI** copilot and Qualcomm Snapdragon® X Elite Hexagon NPU offloading simulator live in your browser:
 
 🔗 **[Launch OmniSense Edge Web App](https://ais-pre-yfke4luhr5mxnyvksijlca-277507101094.asia-east1.run.app)**
+
 Development Preview Link:
 https://ais-dev-yfke4luhr5mxnyvksijlca-277507101094.asia-east1.run.app

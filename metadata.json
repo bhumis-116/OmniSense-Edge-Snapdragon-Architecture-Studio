@@ -1,0 +1,6 @@
+{
+  "name": "OmniSense Edge - Qualcomm Snapdragon NPU Architecture Studio",
+  "description": "Production-grade Qualcomm Snapdragon X Elite Hexagon NPU inference pipeline, ONNX Runtime QNN Execution Provider integration, and real-time accessibility HUD telemetry.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

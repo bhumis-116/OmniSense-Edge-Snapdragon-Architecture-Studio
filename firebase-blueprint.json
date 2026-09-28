@@ -1,0 +1,118 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile and accessibility preferences",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "User unique identifier matching auth.uid",
+          "maxLength": 128
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "User email address",
+          "maxLength": 256
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User full name or alias",
+          "maxLength": 120
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "User profile avatar URL",
+          "maxLength": 1024
+        },
+        "targetDevice": {
+          "type": "string",
+          "description": "Primary hardware target (e.g., Snapdragon X Elite)",
+          "maxLength": 64
+        },
+        "preferredNpuMode": {
+          "type": "string",
+          "enum": ["high_performance", "balanced", "power_saver"],
+          "description": "Qualcomm Hexagon HTP performance mode",
+          "maxLength": 32
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Account registration timestamp"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Profile modification timestamp"
+        }
+      },
+      "required": ["uid", "email", "createdAt", "updatedAt"]
+    },
+    "TelemetrySession": {
+      "title": "TelemetrySession",
+      "description": "Recorded NPU telemetry snapshots and accessibility action items",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Session record unique ID",
+          "maxLength": 128
+        },
+        "userId": {
+          "type": "string",
+          "description": "Owner user UID",
+          "maxLength": 128
+        },
+        "title": {
+          "type": "string",
+          "description": "Session title or document context",
+          "maxLength": 160
+        },
+        "synthesizedText": {
+          "type": "string",
+          "description": "SLM synthesized summary or action items",
+          "maxLength": 4096
+        },
+        "npuLatencyMs": {
+          "type": "number",
+          "description": "Hexagon NPU latency in milliseconds"
+        },
+        "topsUtilized": {
+          "type": "number",
+          "description": "Measured TOPS load"
+        },
+        "powerWatts": {
+          "type": "number",
+          "description": "Estimated power draw in Watts"
+        },
+        "thermalCelsius": {
+          "type": "number",
+          "description": "Silcon temperature at capture"
+        },
+        "activeProvider": {
+          "type": "string",
+          "description": "Active Execution Provider (e.g. QNNExecutionProvider)",
+          "maxLength": 128
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp"
+        }
+      },
+      "required": ["id", "userId", "title", "synthesizedText", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Private user profile and personal accessibility settings"
+    },
+    "/users/{userId}/sessions/{sessionId}": {
+      "schema": "TelemetrySession",
+      "description": "Saved ambient accessibility summaries and NPU telemetry records"
+    }
+  }
+}
